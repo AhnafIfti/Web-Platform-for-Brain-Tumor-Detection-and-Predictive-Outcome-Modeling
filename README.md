@@ -358,3 +358,8 @@ screenshots to `docs/screenshots/`.
 3. Add sagittal and coronal views and a 3D view.
 4. Run the tests in continuous integration.
 5. Before any real use: TLS, a data retention policy, encrypted storage, an audit log, and ethics and clinical review.
+
+## 12. Using the web app
+Sample MRI scan for testing
+
+To try the app without your own data, download one sample patient: https://drive.google.com/file/d/1RsuG0QU-mJIJem6j9w-H88kl_pwxvdCI/view?usp=drive_link
