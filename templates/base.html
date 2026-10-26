@@ -1,0 +1,37 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light"><title>{% block title %}Model insights workspace{% endblock %} · NeuroVision AI</title>
+<link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+<link rel="stylesheet" href="{% static 'css/tailwind.css' %}"><link rel="stylesheet" href="{% static 'css/app.css' %}"><link rel="stylesheet" href="{% static 'css/glass.css' %}"><script src="{% static 'js/app.js' %}" defer></script>{% block head %}{% endblock %}</head>
+<body>
+<svg class="svg-defs" aria-hidden="true"><defs>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M3 12h18"/><circle cx="12" cy="12" r="5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M8 15v-4m5 4V7m5 8V4"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 6-10 6L2 9Zm-10 12 10 6 10-6M2 12l10 6 10-6"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-5 8-8 9-3-1-8-5-8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+</defs></svg>
+<aside class="sidebar" id="sidebar">
+<a class="brand" href="{% url 'dashboard' %}"><span class="brand-mark"><svg><use href="#i-scan"/></svg></span><span>NeuroVision <b>AI</b><small>MRI WORKSPACE</small></span></a>
+<div class="workspace-switch"><span class="workspace-avatar">N</span><span>Neuroimaging Lab<small>Personal workspace</small></span><span class="muted">⌄</span></div>
+<p class="nav-caption">WORKSPACE</p>
+<nav aria-label="Main navigation">
+<a href="{% url 'dashboard' %}" {% if request.resolver_match.url_name == 'dashboard' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-grid"/></svg>Overview</a>
+<a href="{% url 'analysis-new' %}" {% if request.resolver_match.url_name == 'analysis-new' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-scan"/></svg>New analysis<span class="nav-plus">+</span></a>
+<a href="{% url 'history' %}" {% if request.resolver_match.url_name == 'history' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-clock"/></svg>Scan history</a>
+<p class="nav-caption">MODEL & INSIGHTS</p>
+<a href="{% url 'performance' %}" {% if request.resolver_match.url_name == 'performance' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-chart"/></svg>Model performance</a>
+<a href="{% url 'research' %}" {% if request.resolver_match.url_name == 'research' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-layers"/></svg>Model insights</a>
+<a href="{% url 'settings' %}" {% if request.resolver_match.url_name == 'settings' %}class="active" aria-current="page"{% endif %}><svg><use href="#i-settings"/></svg>Settings</a>
+</nav>
+<div class="sidebar-bottom"><div class="research-label"><svg><use href="#i-shield"/></svg><span>Experimental AI<small>Built for exploration. Guided by science.</small></span></div>
+{% if user.is_authenticated %}<div class="user-row"><span class="avatar">{{ user.username|first|upper }}</span><span>{{ user.username }}<small>Personal account</small></span><form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="icon-button" title="Sign out" aria-label="Sign out">↪</button></form></div>{% endif %}</div>
+</aside>
+<div class="app-shell"><header class="topbar"><div><button class="icon-button mobile-menu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">☰</button><span class="muted">Workspace</span><span class="slash">/</span><span>{% block breadcrumb %}Overview{% endblock %}</span></div><div class="topbar-right"><span class="status-dot {% if not checkpoint_present %}amber{% endif %}"></span><span>{% if checkpoint_present %}Checkpoint configured{% else %}Model setup required{% endif %}</span><span class="topbar-divider"></span><span class="badge">AI WORKSPACE</span></div></header>
+<main id="main">{% for message in messages %}<div class="notice">{{ message }}</div>{% endfor %}{% block content %}{% endblock %}</main>
+<footer><span>NeuroVision AI <span class="muted">/ AI-assisted MRI analysis</span></span><a href="{% url 'research' %}#limitations">Educational use · Not a diagnosis <span>↗</span></a></footer></div>
+{% block scripts %}{% endblock %}</body></html>

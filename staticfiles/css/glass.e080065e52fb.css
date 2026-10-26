@@ -1,0 +1,28 @@
+/* Neural imagery stays behind the interface; diagnostic pixels remain untouched. */
+body{background:#050c19;isolation:isolate}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(110deg,rgba(3,9,22,.92),rgba(5,15,33,.73)),url("../images/neural-background.83f15d87bf9d.png") center/cover no-repeat;pointer-events:none}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 78% 8%,#0891b218,transparent 52%);pointer-events:none}
+.sidebar{background:rgba(5,14,28,.82);backdrop-filter:blur(24px);border-right-color:#91c9f018}
+.topbar{background:rgba(7,18,34,.44);backdrop-filter:blur(18px)}
+.panel,.metric-card{background:linear-gradient(135deg,rgba(22,42,65,.64),rgba(9,23,42,.66));border:1px solid #a0d1ef20;box-shadow:0 15px 40px #00000026,inset 0 1px 0 #ffffff04;backdrop-filter:blur(18px)}
+.panel-heading{background:rgba(15,34,53,.12)}
+.overview-hero{position:relative;background:linear-gradient(105deg,rgba(9,26,45,.88),rgba(9,28,48,.44));border-color:#69d7ee30;box-shadow:0 24px 60px #0004,inset 0 1px 0 #ffffff09;backdrop-filter:blur(12px)}
+.overview-hero::before{content:"";position:absolute;inset:0;background:url("../images/neural-background.83f15d87bf9d.png") center 40%/cover;opacity:.12;pointer-events:none}
+.hero-copy h2{background:linear-gradient(110deg,#f5fbff 30%,#95dce9);background-clip:text;-webkit-text-fill-color:transparent;font-weight:600}
+.hero-diagram{background:radial-gradient(ellipse,#28bfd511,transparent 70%)}
+.scan-layer.front{background:linear-gradient(135deg,#164255b0,#0c1d2bad);backdrop-filter:blur(12px);box-shadow:15px 12px 35px #0005,0 0 40px #22d3ee12}
+.workspace-switch,.steps,.architecture-strip{background:#11253a66;backdrop-filter:blur(16px);border-color:#8fbddd20}
+.notice{background:#102d3d9e;backdrop-filter:blur(18px);border-color:#67c8e82b}
+.dropzone{background:#071b2c80;border-color:#669cb766;box-shadow:inset 0 1px 15px #0002}
+.dropzone:hover,.dropzone.dragover{background:#123749a6;box-shadow:0 0 25px #22d3ee12}
+th{background:#07172780}td{border-bottom-color:#91bfdf12}
+tbody tr:hover{background:#71d1f006}
+.button.primary{background:linear-gradient(110deg,#22d3ee,#49b8f5);border-color:#67ddf0aa;box-shadow:0 4px 24px #22d3ee1a;color:#04232d}
+.button.secondary{background:#243c5066;border-color:#9bc3de26;backdrop-filter:blur(12px)}
+nav a.active{background:linear-gradient(90deg,#1ba7be26,#1ba7be0c);box-shadow:inset 2px 0 #45def0;color:#8aebf5}
+.brand-mark{box-shadow:0 0 24px #22d3ee15;background:#16405099}
+.eyebrow{color:#8db5cc}.page-heading p{color:#9eb0c5}
+.metric-card small{color:#8ba3bc}.metric-card>div{color:#b0c4d8}
+footer{background:#050f1a55}.viewport{background:#02070d;backdrop-filter:none}
+.auth-card{box-shadow:0 25px 80px #0005;border-color:#88d5ef2b}
+@media(prefers-reduced-transparency:reduce){.panel,.metric-card,.sidebar{background:#0c1b2c;backdrop-filter:none}}

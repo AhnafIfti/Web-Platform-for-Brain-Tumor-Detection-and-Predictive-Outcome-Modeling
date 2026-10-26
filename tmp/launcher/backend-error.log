@@ -1,0 +1,14 @@
+[23/Oct/2026 00:35:33] "GET / HTTP/1.1" 302 0
+[23/Oct/2026 00:35:33] "GET /dashboard/ HTTP/1.1" 302 0
+[23/Oct/2026 00:35:34] "GET /login/?next=/dashboard/ HTTP/1.1" 200 5067
+[23/Oct/2026 00:35:34] "GET /static/css/glass.css HTTP/1.1" 200 6904
+[23/Oct/2026 00:35:34] "GET /static/js/app.js HTTP/1.1" 200 667
+[23/Oct/2026 00:35:34] "GET /static/css/tailwind.css HTTP/1.1" 200 10231
+[23/Oct/2026 00:35:34] "GET /static/css/app.css HTTP/1.1" 200 29419
+[23/Oct/2026 00:35:35] "GET /static/images/favicon.svg HTTP/1.1" 200 262
+[23/Oct/2026 00:35:43] "GET /settings/ HTTP/1.1" 302 0
+[23/Oct/2026 00:35:43] "GET /login/?next=/settings/ HTTP/1.1" 200 5066
+[23/Oct/2026 00:35:45] "GET /dashboard/ HTTP/1.1" 302 0
+[23/Oct/2026 00:35:45] "GET /login/?next=/dashboard/ HTTP/1.1" 200 5067
+[23/Oct/2026 00:35:46] "GET /dashboard/ HTTP/1.1" 302 0
+[23/Oct/2026 00:35:46] "GET /login/?next=/dashboard/ HTTP/1.1" 200 5067

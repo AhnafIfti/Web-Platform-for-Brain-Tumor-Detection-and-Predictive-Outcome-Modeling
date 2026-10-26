@@ -1,0 +1,5 @@
+@import "tailwindcss" source(none);
+@source "../templates";
+@theme {
+  --color-neuro-cyan: #22d3ee;
+}

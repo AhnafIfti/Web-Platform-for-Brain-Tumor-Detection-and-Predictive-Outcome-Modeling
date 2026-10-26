@@ -1,0 +1,16 @@
+django-otp==1.7.5
+qrcode==8.2
+Django==6.1.1
+torch==2.14.1
+torchvision==0.29.1
+segmentation-models-pytorch==0.5.0
+timm==1.0.30
+numpy==2.5.3
+nibabel==5.4.2
+Pillow==12.3.0
+python-dotenv==1.2.4
+dj-database-url==3.1.2
+psycopg[binary]==3.3.6
+whitenoise==6.12.0
+reportlab==5.0.1
+gunicorn>=23,<26; sys_platform != 'win32'
