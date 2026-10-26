@@ -362,4 +362,4 @@ screenshots to `docs/screenshots/`.
 ## 12. Using the web app
 Sample MRI scan for testing
 
-To try the app without your own data, download one sample patient: https://drive.google.com/file/d/1RsuG0QU-mJIJem6j9w-H88kl_pwxvdCI/view?usp=drive_link
+To try the app without your own data, download one sample patient: https://drive.google.com/file/d/1oA71Yqpil9hfVZTg_74-3PtoxxjwcbAT/view?usp=drive_link
