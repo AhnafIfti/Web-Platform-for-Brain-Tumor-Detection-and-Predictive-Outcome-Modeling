@@ -80,13 +80,19 @@ git clone https://github.com/AhnafIfti/Web-Platform-for-Brain-Tumor-Detection-an
 cd Web-Platform-for-Brain-Tumor-Detection-and-Predictive-Outcome-Modeling
 ```
 
-### Step 3 – Add the model weights
-The trained weights (`swin_tiny_unet.pth`, about 121 MB) are too large for GitHub and are shared separately.
-Put the file in `ml_models/checkpoints/`:
-```bash
-cp /path/to/swin_tiny_unet.pth ml_models/checkpoints/
-ls -lh ml_models/checkpoints/
-```
+### Step 3 – Download the model weights
+The trained weights (`swin_tiny_unet.pth`, about 121 MB) are too large for GitHub, so they are shared on Google Drive.
+
+1. Download the file from: https://drive.google.com/file/d/1RsuG0QU-mJIJem6j9w-H88kl_pwxvdCI/view?usp=sharing
+   (it is saved to your **Downloads** folder; if Drive says it cannot scan the file for viruses, click **Download anyway**).
+2. Move it into the project's checkpoint folder and check it is there:
+   ```bash
+   mkdir -p ml_models/checkpoints
+   mv ~/Downloads/swin_tiny_unet.pth ml_models/checkpoints/
+   ls -lh ml_models/checkpoints/
+   ```
+   You should see `swin_tiny_unet.pth` of about 121 MB. The name must stay exactly `swin_tiny_unet.pth`.
+
 Without this file the website still opens, but analyses stay disabled ("Model unavailable").
 
 ### Step 4 – Create the virtual environment and install the packages (5–10 minutes)
@@ -255,7 +261,7 @@ Restart the worker after changing the model.
 ## 7. The models
 
 ### Current model in the web app: Swin-Tiny U-Net (2D)
-- File: `ml_models/checkpoints/swin_tiny_unet.pth` (definition in `ml_models/model_definition.py`)
+- File: `ml_models/checkpoints/swin_tiny_unet.pth` (download from Google Drive, see section 2 step 3; definition in `ml_models/model_definition.py`)
 - Inputs: FLAIR + T1ce, one axial slice at a time, resized to 224 × 224
 - Output: three sigmoid maps (WT, TC, ET), thresholded at `SEGMENTATION_THRESHOLD`
 
@@ -317,7 +323,7 @@ screenshots to `docs/screenshots/`.
 - **Uploads:** stored under random UUID names in `MEDIA_ROOT`, private to the account that uploaded them.
 - **Results:** masks, slice images, per-slice statistics, inference time and model version, stored in the
   database and media folder. Deleting an analysis removes its scans and results.
-- **Not in the repository:** `.env`, model checkpoints (share separately), `db.sqlite3`, `media/`, `.venv/`.
+- **Not in the repository:** `.env`, `db.sqlite3`, `media/`, `.venv/`, and the model checkpoint (download it from the Google Drive link in section 2, step 3).
 
 ---
 
@@ -328,7 +334,7 @@ screenshots to `docs/screenshots/`.
 | `No matching distribution found for Django==6.1.1` | Python is too old. Use 3.12/3.13 and recreate `.venv`. |
 | The site keeps redirecting to `https://` | Set `DEBUG=true` in `.env` for local use. |
 | `That port is already in use` | Another copy is running. Stop it, or use other ports (e.g. 9141 / 9140). |
-| Upload page says **Model unavailable** | Put the checkpoint at `ml_models/checkpoints/swin_tiny_unet.pth` or set `MODEL_CHECKPOINT_PATH`, then restart the worker. |
+| Upload page says **Model unavailable** | Download `swin_tiny_unet.pth` from the Google Drive link in section 2 (step 3), put it in `ml_models/checkpoints/`, then restart the worker. |
 | Analysis stays **Queued** | The worker is not running. Start `python manage.py run_analysis_worker`. |
 | An analysis was interrupted | Stop the worker, then `python manage.py recover_analysis <analysis-id> --worker-stopped`, then start the worker again. |
 | Pages look unstyled | Make sure `static/` is next to `manage.py`. To rebuild Tailwind: `npm install` then `npm run build:css`. |
